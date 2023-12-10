@@ -1,0 +1,131 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Documentação Swegger da API projeto MVP Pos Puc RIO. Autora: Taise Quadros",
+      "version": "1.0.0",
+      "description": "Cadastro de Tipos de Produtos na Loja X"
+    },
+    "paths": {
+      "/get_all": {
+        "get": {
+          "description": "Returns all the products on the Products Type",
+          "summary": "Find all Products Type",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation"
+            }
+          }
+        }
+      },
+      "/product_types": {
+        "post": {
+          "description": "Post new products on the Products Type",
+          "summary": "Add New Products on Products Type",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "formData",
+              "description": "New product type",
+              "required": true,
+              "type": "string"
+          }
+          ],
+          "responses": {
+            "201": {
+              "description": "Product type created successfully"
+            },
+            "400": {
+              "description": "Invalid data"
+            }
+          }
+        }
+      },
+      "/product_types/<int:type_id>": {
+        "put": {
+          "description": "Update new products on the Products Type",
+          "summary": "Update Products on Products Type",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "formData",
+              "description": "Updated name of the product type",
+              "required": true,
+              "type": "string"
+          },
+          {
+            "type_id": "type_id",
+            "in": "path",
+            "description": "Product type id is on the path",
+            "required": true,
+            "type": "int"
+        }
+          ],
+          "responses": {
+            "201": {
+              "description": "Product type updated successfully"
+            },
+            "400": {
+              "description": "Invalid data"
+            }
+          }
+        }
+      },
+      "/product_types/delete/<int:type_id>": {
+        "delete": {
+          "description": "Delete products on the Products Type",
+          "summary": "Delete Products on Products Type",
+          
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "type_id": "taype_id",
+              "in": "path",
+              "description": "ID from Product Type",
+              "required": true,
+              "type": "int"
+          }
+          ],
+          "responses": {
+            "200": {
+              "description": "Product type deleted successfully"
+            },
+            "400": {
+              "description": "Invalid data"
+            }
+          }
+        }
+      }
+
+    },
+    "definitions": {
+      "AccessData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "server": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+  
